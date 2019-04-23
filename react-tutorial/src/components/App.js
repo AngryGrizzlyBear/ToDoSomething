@@ -1,15 +1,12 @@
 import React, {Component} from 'react';
 import Table from './Table';
+import Form from './Form';
 
 
 class App extends Component {
 
     state = {
-        tasks: [
-            {
-                chore: 'Clean',
-            }
-        ]
+        tasks: []
     };
     removeTask = index => {
         const {tasks} = this.state;
@@ -27,6 +24,7 @@ class App extends Component {
         return (
             <div className="container">
                 <Table taskData={tasks} removeTask={this.removeTask}/>
+                <Form />
             </div>
         );
     }
