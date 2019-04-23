@@ -3,26 +3,32 @@ import Table from './Table';
 
 
 class App extends Component {
-    render() {
-        const tasks = [
+
+    state = {
+        tasks: [
             {
                 chore: 'Clean',
-            },
-            {
-                chore: 'Mac',
-            },
-            {
-                chore: 'Dee',
-            },
-            {
-                chore: 'Dennis',
-            },
-        ];
+            }
+        ]
+    };
+    removeTask = index => {
+        const {tasks} = this.state;
+
+        this.setState({
+            tasks: tasks.filter((task, i) => {
+                return i !== index;
+            }),
+        });
+    };
+
+        render() {
+            const {tasks} = this.state;
+
         return (
             <div className="container">
-                <Table taskData={tasks}/>
+                <Table taskData={tasks} removeTask={this.removeTask}/>
             </div>
-        )
+        );
     }
 }
 

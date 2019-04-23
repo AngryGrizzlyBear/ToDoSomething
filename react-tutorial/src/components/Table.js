@@ -15,6 +15,9 @@ const TableBody = props => {
         return (
             <tr key={index}>
                 <td>{row.chore}</td>
+                <td>
+                    <button onClick={() => props.removeTask(index)}>Delete Chore</button>
+                </td>
             </tr>
         )
     });
@@ -25,12 +28,12 @@ const TableBody = props => {
 class Table extends Component {
     render() {
 
-        const {taskData} = this.props;
+        const {taskData, removeTask} = this.props;
 
         return (
             <table>
                 <TableHeader/>
-                <TableBody taskData={taskData}/>
+                <TableBody taskData={taskData} removeTask={removeTask}/>
             </table>
         )
     }
