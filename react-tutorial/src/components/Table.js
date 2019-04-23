@@ -4,42 +4,33 @@ const TableHeader = () => {
     return (
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Job</th>
+            <th>Things To Do</th>
         </tr>
         </thead>
     )
 };
 
-const TableBody = () => {
-    return (
-        <tbody>
-        <tr>
-            <td>Charlie</td>
-            <td>Janitor</td>
-        </tr>
-        <tr>
-            <td>Mac</td>
-            <td>Bouncer</td>
-        </tr>
-        <tr>
-            <td>Dee</td>
-            <td>Aspiring actress</td>
-        </tr>
-        <tr>
-            <td>Dennis</td>
-            <td>Bartender</td>
-        </tr>
-        </tbody>
-    )
+const TableBody = props => {
+    const rows = props.taskData.map((row, index) => {
+        return (
+            <tr key={index}>
+                <td>{row.chore}</td>
+            </tr>
+        )
+    });
+
+    return <tbody>{rows}</tbody>
 };
 
 class Table extends Component {
     render() {
+
+        const {taskData} = this.props;
+
         return (
             <table>
                 <TableHeader/>
-                <TableBody/>
+                <TableBody taskData={taskData}/>
             </table>
         )
     }
