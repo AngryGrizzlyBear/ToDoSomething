@@ -12,18 +12,26 @@ class Form extends Component {
     }
 
     handleChange = event => {
-        const {name, value} = event.target
+        const {name, value} = event.target;
 
         this.setState({
             [name]: value,
         });
     };
 
+    onFormSubmit = (event) => {
+        event.preventDefault();
+
+        this.props.handleSubmit(this.state);
+        this.setState(this.initialState);
+    };
+
+
     render() {
         const {chore} = this.state;
 
         return (
-            <form>
+            <form onSubmit={this.onFormSubmit}>
                 <label>Chore</label>
                 <input
                     type="text"
@@ -31,6 +39,9 @@ class Form extends Component {
                     value={chore}
                     onChange={this.handleChange}
                 />
+                <button type="submit">
+                    Submit
+                </button>
             </form>
         );
     }
