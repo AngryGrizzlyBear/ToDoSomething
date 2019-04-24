@@ -5,7 +5,7 @@ class Form extends Component {
         super(props);
 
         this.initialState = {
-            tasks: '',
+            task: '',
         };
 
         this.state = this.initialState
@@ -22,21 +22,21 @@ class Form extends Component {
     onFormSubmit = (event) => {
         event.preventDefault();
 
-        this.props.handleSubmit(this.state);
+        this.props.handleSubmit(this.state.task);
         this.setState(this.initialState);
     };
 
 
     render() {
-        const {chore} = this.state;
+        const {task} = this.state;
 
         return (
             <form onSubmit={this.onFormSubmit} >
                 <label>Chore</label>
                 <input
                     type="text"
-                    name="chore"
-                    value={chore}
+                    name="task"
+                    value={task}
                     onChange={this.handleChange}
                 />
                 <button type="submit">

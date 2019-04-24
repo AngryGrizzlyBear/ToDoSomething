@@ -14,7 +14,7 @@ const TableBody = props => {
     const rows = props.taskData.map((row, index) => {
         return (
             <tr key={index}>
-                <td>{row.chore}</td>
+                <td>{row}</td>
                 <td>
                     <button onClick={() => props.removeTask(index)}>Delete Chore</button>
                 </td>

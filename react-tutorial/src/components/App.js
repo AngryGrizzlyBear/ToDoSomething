@@ -19,7 +19,6 @@ class App extends Component {
     };
 
     handleSubmit = task => {
-        console.log(task);
         this.setState({tasks: [...this.state.tasks, task] })
     };
 
