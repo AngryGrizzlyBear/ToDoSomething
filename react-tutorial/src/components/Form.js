@@ -31,7 +31,7 @@ class Form extends Component {
         const {chore} = this.state;
 
         return (
-            <form onSubmit={this.onFormSubmit}>
+            <form onSubmit={this.onFormSubmit} >
                 <label>Chore</label>
                 <input
                     type="text"

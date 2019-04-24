@@ -19,19 +19,25 @@ class App extends Component {
     };
 
     handleSubmit = task => {
-        this.setState({ tasks: [...this.state.tasks, task]})
+        console.log(task);
+        this.setState({tasks: [...this.state.tasks, task] })
     };
 
-        render() {
-            const {tasks} = this.state;
+    render() {
+        const {tasks} = this.state;
 
         return (
             <div className="container">
-                <Table taskData={tasks}
-                       removeTask={this.removeTask}
+                <Table
+                    taskData={tasks}
+                    removeTask={this.removeTask}
                 />
-                <Form handleSubmit={this.handleSubmit} />
+                <Form
+                    handleSubmit={this.handleSubmit}
+                />
+
             </div>
+
         );
     }
 }
